@@ -1,4 +1,4 @@
-var Dispatcher = require('flux').Dispatcher;
+import { Dispatcher } from 'flux';
 
 class AppDispatcher extends Dispatcher {
   /**
@@ -50,4 +50,4 @@ class AppDispatcher extends Dispatcher {
 }
 
 // We only need a single dispatcher per application.
-module.exports = new AppDispatcher();
+export default new AppDispatcher();

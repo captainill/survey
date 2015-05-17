@@ -1,6 +1,6 @@
 //import { Schema, arrayOf, normalize } from 'normalizr';
 
-export function fetchSurvey(id) {
+function mockDBSurveyQuery(id){
   switch(id){
     case 1 :
       return require('../data/MorningSurveryData');
@@ -10,6 +10,15 @@ export function fetchSurvey(id) {
     break;
     default :
       return require('../data/MorningSurveryData');
-    break;        
+    break;  
   }
+}
+
+export function fetchSurvey(id) {
+  return new Promise(function(resolve, reject){
+    setTimeout(function(){
+      var survey = mockDBSurveyQuery(id);
+      resolve(survey)
+    }, 1000);
+  })
 }

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import SurveyActionCreators from'../actions/SurveyActionCreators';
+import * as SurveyActionCreators from'../actions/SurveyActionCreators';
 import SurveyStore from '../stores/SurveyStore';
 /* eslint-disable no-unused-vars */
 import connectToStores from '../utils/connectToStores';
@@ -16,8 +16,8 @@ function requestData(props) {
  * Retrieves state from stores for current props.
  */
 function getState(props) { // eslint-disable-line no-unused-vars
-
-  const survey = SurveyStore.get(fullName);
+  const { params } = props;
+  const survey = SurveyStore.get(params.id);
 
   return {
     survey
