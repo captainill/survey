@@ -50,11 +50,10 @@ export default class Survey {
 
   render() {
   	const { params } = this.props;
-  	console.log('this.props.params', this.props.params);
-
+    console.log('survey=', this.props.survey);
     return (
       <div className="survey">
-      	<p>The Survey</p>
+      	<p>The Survey { this.props.params.id }</p>
       </div>
     );
   }

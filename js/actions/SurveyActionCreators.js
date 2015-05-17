@@ -9,7 +9,6 @@ export function requestSurvey(id) {
     return;
   }
 
-  console.log(AppConstants)
   AppDispatcher.dispatchAsync(SurveyAPI.getSurvey(id), {
     request: AppConstants.REQUEST_SURVEY,
     success: AppConstants.REQUEST_SURVEY_SUCCESS,

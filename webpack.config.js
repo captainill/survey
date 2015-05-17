@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var WebackGrowlErrorPlugin = require('./js/lib/WebackGrowlErrorPlugin')
 
 
 module.exports = {
@@ -14,6 +15,7 @@ module.exports = {
   },
 
   plugins: [
+    new WebackGrowlErrorPlugin(),
     new webpack.NoErrorsPlugin()
   ],
 
