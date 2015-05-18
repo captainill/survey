@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import * as SurveyActionCreators from'../actions/SurveyActionCreators';
 import SurveyStore from '../stores/SurveyStore';
+import classNames from 'classnames';
 import MainNavPartial from './partials/MainNavPartial';
 /* eslint-disable no-unused-vars */
 import connectToStores from '../utils/connectToStores';
@@ -52,9 +53,10 @@ export default class Survey {
 
   render() {
   	const { params } = this.props;
-    console.log('survey=', this.props.survey);
+    let classes = classNames('survey-wrap', 'survey-'+this.props.params.id);
+
     return (
-      <div className="survey-wrap">
+      <div className={classes}>
         <p>The Survey -- { this.props.params.id }</p>
         <div className="survey">
 

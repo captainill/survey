@@ -6,6 +6,7 @@
   "main": "js/client.js",
   "dependencies": {
     "babel-runtime": "^5.1.10",
+    "classnames": "^2.1.1",
     "core-js": "^0.9.6",
     "flux": "^2.0.1",
     "keymirror": "~0.1.0",
