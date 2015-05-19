@@ -39,28 +39,23 @@ module.exports = {
       body: 'How well did you sleep last night?',
       choices: [
         {
-          id:'c_1',
-          scale: 1,
+          id:'c_6',
           text: 'really poorly'
         },
         {
-          id:'c_2',
-          scale: 2,
+          id:'c_7',
           text: 'poorly'
         },
         {
-          id:'c_3',
-          scale: 3,
+          id:'c_8',
           text: 'average'
         },   
         {
-          id:'c_4',
-          scale: 4,
+          id:'c_9',
           text: 'well'
         },
         {
-          id:'c_5',
-          scale: 5,
+          id:'c_10',
           text: 'very well'
         }          
       ]
@@ -73,28 +68,23 @@ module.exports = {
       body: 'How motivated to you feel?',
       choices: [
         {
-          id:'c_1',
-          scale: 1,
+          id:'c_11',
           text: 'not at all'
         },
         {
-          id:'c_2',
-          scale: 2,
+          id:'c_12',
           text: 'below average'
         },
         {
-          id:'c_3',
-          scale: 3,
+          id:'c_13',
           text: 'average'
         },   
         {
-          id:'c_4',
-          scale: 4,
+          id:'c_14',
           text: 'somewhat'
         },
         {
-          id:'c_5',
-          scale: 5,
+          id:'c_15',
           text: 'very!'
         }          
       ]
@@ -104,14 +94,34 @@ module.exports = {
       id: 'q_4',
       type: 'yes_no',
       required: true,
-      body: 'Bowel movement?'
+      body: 'Bowel movement?',
+      choices: [
+        {
+          id:'c_16',
+          text: 'yes'
+        },
+        {
+          id:'c_17',
+          text: 'no'
+        }
+      ]      
     },
 
     {
       id: 'q_5',
       type: 'yes_no',
       required: true,
-      body: 'Did you meditate?'
+      body: 'Did you meditate?',
+      choices: [
+        {
+          id:'c_18',
+          text: 'yes'
+        },
+        {
+          id:'c_19',
+          text: 'no'
+        }
+      ]            
     }, 
 
     {
