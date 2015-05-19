@@ -10,7 +10,7 @@ import connectToStores from '../utils/connectToStores';
 
 function requestData(props) {
   const { params } = props;
-  const id = parseInt(params.id);
+  const id = params.id;
 
   SurveyActionCreators.requestSurvey(id);
 }

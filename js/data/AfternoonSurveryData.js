@@ -1,11 +1,11 @@
 module.exports = {
-  id: 's_1',
+  id: 's_2',
   name: 'Afternoon',
   description: 'Afternoon recap! Perform this around dinner time.',
   questions: [
 
     {
-      id: 'q_1',
+      id: 'q_9',
       type: 'likert',
       required: true,
       body: 'How much energy do you have?',
@@ -39,7 +39,7 @@ module.exports = {
     },      
 
     {
-      id: 'q_3',
+      id: 'q_10',
       type: 'likert',
       required: true,
       body: 'How motivated to you feel?',
@@ -73,21 +73,21 @@ module.exports = {
     },
 
     {
-      id: 'q_4',
+      id: 'q_11',
       type: 'yes_no',
       required: true,
       body: 'Have you had an coffee?'
     },
 
     {
-      id: 'q_6',
+      id: 'q_12',
       type: 'open',
       required: true,
       body: 'What did you have for lunch?'
     }, 
 
     {
-      id: 'q_7',
+      id: 'q_13',
       type: 'open',
       required: false,
       body: 'Anything else to report this afternoon?'

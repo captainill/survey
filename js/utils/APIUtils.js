@@ -1,11 +1,12 @@
 //import { Schema, arrayOf, normalize } from 'normalizr';
 
 function mockDBSurveyQuery(id){
+  console.log('mock db id=', id);
   switch(id){
-    case 1 :
+    case 's_1' :
       return require('../data/MorningSurveryData');
     break;
-    case 2 :
+    case 's_2' :
       return require('../data/AfternoonSurveryData');
     break;
     default :

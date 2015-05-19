@@ -49,10 +49,12 @@ const SurveyStore = createStore({
   },
 
   getQuestions(id){
+    console.log('SurveyStore getQuestionst', id)
     return QuestionStore.getQuestions(id);
   },
 
   contains(id) {
+    console.log('isInBag', isInBag(_surveys, id))
     return isInBag(_surveys, id);
   },
 
@@ -73,6 +75,7 @@ SurveyStore.dispatchToken = AppDispatcher.register(action => {
       let survey = action.response;
       if (survey) {
         SurveyStore.init(survey);
+        console.log(_surveys)
         SurveyStore.emitChange();
       }
     break;

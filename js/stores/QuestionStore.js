@@ -12,7 +12,6 @@ const QuestionStore = createStore({
     for (var question in questions){
       let id = questions[question].id;
       _questions[id] = questions[question];
-      console.log(_questions[id])
     }    
   },
 
@@ -34,6 +33,7 @@ const QuestionStore = createStore({
   },
 
   getQuestions(id){
+    console.log('QS getQuestionst', id)
     var surveyQuestions = [];
     for (var question in _questions){
       //console.log(_questions[question].surveyID, id)
@@ -41,6 +41,7 @@ const QuestionStore = createStore({
         surveyQuestions.push(_questions[question]);
       }      
     }
+    console.log('QS surveyQuestions', surveyQuestions)
     return surveyQuestions;
   },  
 
