@@ -20,10 +20,17 @@ function requestData(props) {
  */
 function getState(props) { // eslint-disable-line no-unused-vars
   const { params } = props;
-  const survey = SurveyStore.get(params.id);
+  const surveyID = params.id;
+  const survey = SurveyStore.get(surveyID);
+  const completedText = SurveyStore.getCompletedText(surveyID);
+  const questions = SurveyStore.getQuestions(surveyID);
+
+  console.log('state', questions);
 
   return {
-    survey
+    survey,
+    completedText,
+    questions
   }
 }
 
@@ -40,7 +47,8 @@ export default class Survey {
   	}).isRequired,
 
   	// Injected by @connectToStores:
-  	survey: PropTypes.object
+  	survey: PropTypes.object,
+    completedText: PropTypes.string
   }
 
   constructor(props) {
@@ -53,13 +61,19 @@ export default class Survey {
 
   render() {
   	const { params } = this.props;
-    let classes = classNames('survey-wrap', 'survey-'+this.props.params.id);
+    const classes = classNames('survey-wrap', 'survey-'+this.props.params.id);
+    const questionMap = this.props.questions.map(function(question){
+      return <li key={ question.id }>{ question.body }</li>;
+    })
 
     return (
       <div className={classes}>
         <p>The Survey -- { this.props.params.id }</p>
+        <p>{this.props.completedText}</p>
         <div className="survey">
-
+          <ul>
+            { questionMap }
+          </ul>
         </div>
         <div className="survey-nav">
           <MainNavPartial surveyID={this.props.params.id}/>

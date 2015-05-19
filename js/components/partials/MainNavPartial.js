@@ -6,8 +6,8 @@ export default class MainNavPartial extends React.Component {
     return (
       <ul className="nav navbar-nav navbar-right">
       	<li><Link to='home' >Home</Link></li>
-        <li className={(this.props.surveyID === '1') ? 'active' : ''}><Link to='survey' params={{id: "1"}}>Survey 1</Link></li>
-        <li className={(this.props.surveyID === '2') ? 'active' : ''}><Link to='survey' params={{id: "2"}}>Survey 2</Link></li>
+        <li className={(this.props.surveyID === '1') ? 'active' : ''}><Link to='survey' params={{id: "s_1"}}>Survey 1</Link></li>
+        <li className={(this.props.surveyID === '2') ? 'active' : ''}><Link to='survey' params={{id: "s_2"}}>Survey 2</Link></li>
       </ul>
     );
   }

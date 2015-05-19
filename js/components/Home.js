@@ -7,7 +7,7 @@ var Home = React.createClass({
     return (
       <div className="welcome">
       	<p>Survery App</p>
-      	<Link to="survey" params={{id: "1"}}>Start now >></Link>
+      	<Link to="survey" params={{id: "s_1"}}>Start now >></Link>
       </div>
     );
   }
