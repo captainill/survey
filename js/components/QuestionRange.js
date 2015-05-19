@@ -24,20 +24,23 @@ export default class QuestionRange {
     })    
 
     return (
-      <legend
-        key={questionID}
-        className="range-group">
-        <input type="range"
-          ref="rangeInput"
-          id={"range-"+questionID}
-          className="range-input"
-          onChange={_this.onRangeChange}
-          min="1"
-          max={choices.length}
-          step="1"
-          list={"range-"+questionID}
-          />
-      </legend>
+      <div>
+        {choices}
+        <legend
+          key={questionID}
+          className="range-group">
+          <input type="range"
+            ref="rangeInput"
+            id={"range-"+questionID}
+            className="range-input"
+            onChange={_this.onRangeChange}
+            min="1"
+            max={choices.length}
+            step="1"
+            list={"range-"+questionID}
+            />
+        </legend>
+      </div>
     )
   }
 
@@ -48,7 +51,7 @@ export default class QuestionRange {
     return (
       <div className="question">
         <p>{this.props.question.body}</p>
-        <div className="choices">
+        <div className="choices c-range">
             { range }
         </div>
       </div>

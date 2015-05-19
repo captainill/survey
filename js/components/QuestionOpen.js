@@ -14,7 +14,7 @@ export default class QuestionOpen {
     return (
       <div className="question">
         <p>{this.props.question.body}</p>
-        <div className="choices">
+        <div className="choices c-open">
           <textarea name="open" placeholder="Enter your response" />
         </div>
       </div>

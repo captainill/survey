@@ -24,7 +24,7 @@ export default class QuestionBinary {
     return (
       <div className="question">
         <p>{this.props.question.body}</p>
-        <div className="choices">
+        <div className="choices c-binary">
         <fieldset> 
           { choices }
         </fieldset> 
