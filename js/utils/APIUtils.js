@@ -1,6 +1,5 @@
 
 function mockDBSurveyQuery(id){
-  console.log('mock db id=', id);
   switch(id){
     case 's_1' :
       return require('../data/MorningSurveryData');

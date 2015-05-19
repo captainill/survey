@@ -3,6 +3,9 @@ import * as SurveyActionCreators from'../actions/SurveyActionCreators';
 import SurveyStore from '../stores/SurveyStore';
 import classNames from 'classnames';
 import MainNavPartial from './partials/MainNavPartial';
+import QuestionRange from './QuestionRange';
+import QuestionBinary from './QuestionBinary';
+import QuestionOpen from './QuestionOpen';
 /* eslint-disable no-unused-vars */
 import connectToStores from '../utils/connectToStores';
 /* eslint-enable no-unused-vars */
@@ -50,7 +53,7 @@ export default class Survey {
   }
 
   constructor(props) {
-    //this.renderStargazers = this.renderStargazers.bind(this);
+
   }	  
 
   componentWillMount() {
@@ -61,7 +64,17 @@ export default class Survey {
   	const { params } = this.props;
     const classes = classNames('page-wrap', 'survey-'+this.props.params.id);
     const questionMap = this.props.questions.map(function(question){
-      return <li key={ question.id }>{ question.body }</li>;
+      switch(question.type){
+        case 'likert' :
+        case 'multiple' :
+          return <QuestionRange key={ question.id } question={question} />;
+        case 'yes_no' :
+          return <QuestionBinary key={ question.id } question={question} />;
+        case 'open' :
+          return <QuestionOpen key={ question.id } question={question} />;
+        default :
+          //none
+      }
     })
 
     return (
@@ -69,9 +82,7 @@ export default class Survey {
         <p>The Survey -- { this.props.params.id }</p>
         <p>{this.props.completedText}</p>
         <div className="survey">
-          <ul>
-            { questionMap }
-          </ul>
+          { questionMap }
         </div>
         <div className="survey-nav">
           <MainNavPartial surveyID={this.props.params.id}/>
