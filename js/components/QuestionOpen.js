@@ -5,10 +5,7 @@ export default class QuestionOpen {
 
 	static propTypes = {
   	quesion: PropTypes.object
-  }
-
-  constructor(props) {
-  }	  
+  } 
 
   componentWillMount() {
   }
@@ -16,7 +13,7 @@ export default class QuestionOpen {
   render() {
     return (
       <div className="question">
-        <p>this.props.question.body</p>
+        <p>{this.props.question.body}</p>
         <div className="choices">
           <textarea name="open" placeholder="Enter your response" />
         </div>

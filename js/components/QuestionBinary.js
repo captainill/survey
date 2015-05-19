@@ -5,10 +5,7 @@ export default class QuestionBinary {
 
 	static propTypes = {
   	quesion: PropTypes.object
-  }
-
-  constructor(props) {
-  }	  
+  }  
 
   componentWillMount() {
   }
@@ -20,7 +17,7 @@ export default class QuestionBinary {
 
     return (
       <div className="question">
-        <p>this.props.question.body</p>
+        <p>{this.props.question.body}</p>
         <div className="choices">
           <ul>
             { choices }
