@@ -9,6 +9,7 @@ import QuestionOpen from './QuestionOpen';
 /* eslint-disable no-unused-vars */
 import connectToStores from '../utils/connectToStores';
 /* eslint-enable no-unused-vars */
+import selectn from 'selectn';
 
 
 function requestData(props) {
@@ -63,6 +64,9 @@ export default class Survey {
   render() {
   	const { params } = this.props;
     const classes = classNames('page-wrap', 'survey-'+this.props.params.id);
+    const surveyName = selectn('name', this.props.survey)
+    const surveyDescription = selectn('description', this.props.survey)
+
     const questionMap = this.props.questions.map(function(question){
       switch(question.type){
         case 'likert' :
@@ -79,7 +83,8 @@ export default class Survey {
 
     return (
       <div className={classes}>
-        <p>The Survey -- { this.props.params.id }</p>
+        <h2>Survey - { surveyName }</h2>
+        <p>{ surveyDescription }</p>
         <p>{this.props.completedText}</p>
         <div className="survey">
           { questionMap }

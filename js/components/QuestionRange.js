@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import * as SurveyActionCreators from'../actions/SurveyActionCreators';
+import QuestionStore from'../stores/QuestionStore';
 
 export default class QuestionRange {
 
