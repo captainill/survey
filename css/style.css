@@ -10,32 +10,6 @@ body{
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;	
 }
-/*
-.survey-s_1{
-	background-color: black;
-}
-
-.survey-s_2{
-	background-color: blue;
-}*/
-
-/*.example-enter {
-    color: white;
-    transition: all .5s ease-in;
- }
-
-.example-enter.example-enter-active {
-    opacity: 1;
-}
-
-.example-leave {
-    color: white;
-    transition: all .5s ease-in;
-}
-
-.example-leave.example-leave-active {
-		opacity: 1;
-}*/
 
 @-webkit-keyframes fadeInRight {
   0% {

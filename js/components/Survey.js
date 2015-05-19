@@ -25,8 +25,6 @@ function getState(props) { // eslint-disable-line no-unused-vars
   const completedText = SurveyStore.getCompletedText(surveyID);
   const questions = SurveyStore.getQuestions(surveyID);
 
-  console.log('state', questions);
-
   return {
     survey,
     completedText,

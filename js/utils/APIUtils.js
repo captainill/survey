@@ -1,4 +1,3 @@
-//import { Schema, arrayOf, normalize } from 'normalizr';
 
 function mockDBSurveyQuery(id){
   console.log('mock db id=', id);
