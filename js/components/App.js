@@ -11,7 +11,7 @@ var App = React.createClass({
     return (
       <div className="chatapp">
       	<TransitionGroup component="div" transitionName="example">
-        	<RouteHandler key={name}/>
+        	<RouteHandler key={name} />
         </TransitionGroup>
       </div>
     );

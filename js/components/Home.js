@@ -5,7 +5,7 @@ var Home = React.createClass({
 
   render: function() {
     return (
-      <div className="welcome">
+      <div className="welcome page-wrap">
       	<p>Survery App</p>
       	<Link to="survey" params={{id: "s_1"}}>Start now >></Link>
       </div>

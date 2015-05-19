@@ -61,7 +61,7 @@ export default class Survey {
 
   render() {
   	const { params } = this.props;
-    const classes = classNames('survey-wrap', 'survey-'+this.props.params.id);
+    const classes = classNames('page-wrap', 'survey-'+this.props.params.id);
     const questionMap = this.props.questions.map(function(question){
       return <li key={ question.id }>{ question.body }</li>;
     })
