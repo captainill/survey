@@ -53,10 +53,6 @@ export default class Survey {
     completedText: PropTypes.string
   }
 
-  constructor(props) {
-
-  }	  
-
   componentWillMount() {
     requestData(this.props);
   }
