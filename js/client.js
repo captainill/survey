@@ -1,10 +1,11 @@
 // This file bootstraps the entire application.
 require('babel-core/polyfill');
 
-var React = require('react');
-var Router = require('react-router');
-var { Route, HistoryLocation } = Router;
-var routes = require('./routes')
+import '../scss/main.scss';
+
+import React from 'react';
+import Router from 'react-router';
+import routes from './routes';
 
 window.React = React; // export for http://fb.me/react-devtools
 

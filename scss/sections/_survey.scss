@@ -1,0 +1,21 @@
+.c-range{
+   max-width: 970px;
+
+  .span-list{
+		span{
+			display: inline-block;
+			width: 20%;
+			text-align: center;
+		}
+  }
+
+  legend{
+    width: 100%;
+  	padding: 0 60px;
+  	box-sizing: border-box;    
+  	
+    input{
+      width: 100%;
+    }
+  }
+}

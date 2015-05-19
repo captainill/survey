@@ -24,8 +24,10 @@ export default class QuestionRange {
     })    
 
     return (
-      <div>
-        {choices}
+      <div className="choices c-range">
+        <div className="span-list">
+          {choices}
+        </div>
         <legend
           key={questionID}
           className="range-group">
@@ -51,9 +53,7 @@ export default class QuestionRange {
     return (
       <div className="question">
         <p>{this.props.question.body}</p>
-        <div className="choices c-range">
-            { range }
-        </div>
+        { range }
       </div>
     );
   }

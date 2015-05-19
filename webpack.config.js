@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var WebackGrowlErrorPlugin = require('./js/lib/WebackGrowlErrorPlugin')
 
 
@@ -15,6 +16,7 @@ module.exports = {
   },
 
   plugins: [
+    new ExtractTextPlugin('style.css'),
     new WebackGrowlErrorPlugin(),
     new webpack.NoErrorsPlugin()
   ],
@@ -25,7 +27,15 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules)/,
         loader: 'babel'
-      }
+      },
+      { 
+        test: /\.scss$/, 
+        loader: ExtractTextPlugin.extract(
+          // activate source maps via loader query
+          'css?sourceMap!' +
+          'sass?sourceMap'        
+        )
+      }      
     ]
   }
 };
