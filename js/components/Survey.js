@@ -59,7 +59,7 @@ export default class Survey {
 
   render() {
   	const { params } = this.props;
-    const classes = classNames('page-wrap', 'survey-'+this.props.params.id);
+    const classes = classNames('page-wrap', 'survey-wrap', 'survey-'+this.props.params.id);
     const surveyName = selectn('name', this.props.survey)
     const surveyDescription = selectn('description', this.props.survey)
 

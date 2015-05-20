@@ -1,3 +1,27 @@
+.survey-nav{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: 2px -8px 8px rgba(0,0,0,.04);
+
+  ul{
+    list-style-type: none;
+    li{
+      display: inline-block;
+      width: 33.33333333%;
+      text-align: center;
+      padding: 10px 0;
+    }
+  }
+}
+
+.survey-wrap{
+	margin-bottom: 100px;
+}
+
+
 .c-range{
    max-width: 970px;
 

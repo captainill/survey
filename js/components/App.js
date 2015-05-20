@@ -9,7 +9,7 @@ var App = React.createClass({
   render: function() {
   	var name = this.context.router.getCurrentPath();
     return (
-      <div className="chatapp">
+      <div className="app">
       	<TransitionGroup component="div" transitionName="example">
         	<RouteHandler key={name} />
         </TransitionGroup>
