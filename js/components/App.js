@@ -1,12 +1,16 @@
-var React = require('react/addons');
-var TransitionGroup = React.addons.CSSTransitionGroup;
-var { RouteHandler } = require('react-router');
+import React from "react/addons";
+import { RouteHandler } from 'react-router';
 
-var App = React.createClass({
-  contextTypes: {
+const { addons } = React;
+const { TransitionGroup } = addons;
+
+export default class App extends React.Component{
+
+  static contextTypes = {
     router: React.PropTypes.func
-  },
-  render: function() {
+  }
+
+  render() {
   	var name = this.context.router.getCurrentPath();
     return (
       <div className="app">
@@ -17,6 +21,4 @@ var App = React.createClass({
     );
   }
 
-});
-
-module.exports = App;
+};
