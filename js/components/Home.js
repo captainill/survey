@@ -1,9 +1,9 @@
-var React = require('react');
-var { Link } = require('react-router');
+import React from 'react';
+import { Link } from 'react-router';
 
-var Home = React.createClass({
+export default class Home extends React.Component{
 
-  render: function() {
+  render() {
     return (
       <div className="welcome page-wrap">
       	<p>Survery App</p>
@@ -12,6 +12,4 @@ var Home = React.createClass({
     );
   }
 
-});
-
-module.exports = Home;
+};
