@@ -2,7 +2,7 @@ import React from "react/addons";
 import { RouteHandler } from 'react-router';
 
 const { addons } = React;
-const { TransitionGroup } = addons;
+const { CSSTransitionGroup } = addons;
 
 export default class App extends React.Component{
 
@@ -14,9 +14,9 @@ export default class App extends React.Component{
   	var name = this.context.router.getCurrentPath();
     return (
       <div className="app">
-      	<TransitionGroup component="div" transitionName="example">
+      	<CSSTransitionGroup component="div" transitionName="example">
         	<RouteHandler key={name} />
-        </TransitionGroup>
+        </CSSTransitionGroup>
       </div>
     );
   }
