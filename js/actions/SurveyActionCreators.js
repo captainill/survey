@@ -17,12 +17,8 @@ export function requestSurvey(id) {
 }
 
 export function saveAnswer(payload){
-	AppDispatcher.dispatch({
-      type: AppConstants.SAVE_ANSWER,
-      question: payload.question,
-      answer: payload.answer
-    });
+	AppDispatcher.dispatch(AppConstants.SAVE_ANSWER, payload);
 
 	//save to localstorage
-	SurveyAPI.saveAnswer(payload)
+	SurveyAPI.saveAnswer(payload);
 }

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import * as SurveyActionCreators from'../actions/SurveyActionCreators';
+import AppConstants from '../constants/AppConstants';
 
 export default class QuestionOpen {
 
@@ -24,7 +25,7 @@ export default class QuestionOpen {
     var text = this.refs.textArea.getDOMNode().value;
 
     SurveyActionCreators.saveAnswer({
-      question: this.props.question.id,
+      questionID: this.props.question.id,
       answer: text
     })
   }

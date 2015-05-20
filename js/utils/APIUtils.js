@@ -23,5 +23,6 @@ export function fetchSurvey(id) {
 }
 
 export function postAnswer(payload){
-   localStorage.setItem(payload.question, JSON.stringify(payload))
+  localStorage.setItem(payload.questionID,  JSON.stringify(payload))
+  return payload;
 }

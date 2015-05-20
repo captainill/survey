@@ -13,7 +13,8 @@ function _addQuestions(survey){
   let questions = survey.questions.map(function(question){
     question.surveyID = survey.id;
     if(localStorage.getItem(question.id)){
-      question.answer = JSON.parse(localStorage.getItem(question.id)).answer;
+      const localObj = JSON.parse(localStorage.getItem(question.id));
+      question.answer = localObj.choiceID || localObj.answer;
     }
     return question;
   })

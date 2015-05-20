@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
 import * as SurveyActionCreators from'../actions/SurveyActionCreators';
+import AppConstants from '../constants/AppConstants';
+import selectn from 'selectn';
 
 export default class QuestionBinary {
 
@@ -13,8 +15,18 @@ export default class QuestionBinary {
     const choices = this.props.question.choices.map(function(choice){
       return (
         <div key={ choice.id } >
-          <input onChange={_this.onChangeHandler.bind(_this, choice.id)} type="radio" name={ questionID } id={ choice.id } value={ choice.text } />
-          <label htmlFor={ choice.id }>{ choice.text } </label>
+          <input 
+            onChange={_this.onChangeHandler.bind(_this, {
+              questionID: questionID,
+              choiceID: choice.id,
+              answer: choice.text              
+            })}
+            type="radio"
+            name={ questionID }
+            id={ choice.id }
+            defaultChecked={(_this.props.question.answer && (_this.props.question.answer === choice.id))}
+            value={ choice.text } />
+          <label htmlFor={ choice.id }>{ choice.text }</label>
         </div>
         )
     })
@@ -31,8 +43,8 @@ export default class QuestionBinary {
     );
   }
 
-  onChangeHandler(id){
-    console.log(id)
+  onChangeHandler(payload){
+    SurveyActionCreators.saveAnswer(payload);
   }
 
 }

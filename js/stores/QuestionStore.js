@@ -57,7 +57,7 @@ QuestionStore.dispatchToken = AppDispatcher.register(action => {
   switch(action.type) {
 
     case AppConstants.SAVE_ANSWER:
-      QuestionStore.saveQuestionAnswer(action.response);
+      //console.log('QuestionStore SAVE_ANSWER ', action.questionID, action.answer)
       //QuestionStore.emitChange();
     break;    
 

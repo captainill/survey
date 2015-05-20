@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import QuestionStore from'../stores/QuestionStore';
 import { createRangeDataList } from'../utils/FormUtils';
+import * as SurveyActionCreators from'../actions/SurveyActionCreators';
+import AppConstants from '../constants/AppConstants';
 
 
 export default class QuestionRange {
@@ -17,7 +19,11 @@ export default class QuestionRange {
   renderRange(range) {
     const _this = this;
     const questionID = this.props.question.id;
+    let answerChoice = null;
     const choices = this.props.question.choices.map(function(choice, i){
+      if(_this.props.question.answer && (_this.props.question.answer == choice.id)){
+        answerChoice = i;
+      }
       return <span onClick={ _this.onRangeLabelClick.bind(_this) } key={ choice.id }>{ choice.text }</span>;
     })    
 
@@ -34,9 +40,10 @@ export default class QuestionRange {
             id={"range-"+questionID}
             className="range-input"
             onChange={_this.onRangeChange.bind(_this)}
-            min="1"
-            max={choices.length}
+            min="0"
+            max={choices.length - 1}
             step="1"
+            defaultValue={answerChoice}
             list={"range-"+questionID}
             />
         </legend>
@@ -56,7 +63,14 @@ export default class QuestionRange {
   }
 
   onRangeChange(){
-    console.log(this.refs.rangeInput.getDOMNode().value);
+    var rangeStep = this.refs.rangeInput.getDOMNode().value;
+
+    SurveyActionCreators.saveAnswer({
+      questionID: this.props.question.id,
+      choiceID: this.props.question.choices[rangeStep].id,
+      answer: this.props.question.choices[rangeStep].text
+    });
+
   }
 
   onRangeLabelClick(){
