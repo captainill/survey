@@ -12,6 +12,9 @@ let _currentQuestionsAnswered = 0;
 function _addQuestions(survey){
   let questions = survey.questions.map(function(question){
     question.surveyID = survey.id;
+    if(localStorage.getItem(question.id)){
+      question.answer = JSON.parse(localStorage.getItem(question.id)).answer;
+    }
     return question;
   })
   QuestionStore.init(questions); 
@@ -23,7 +26,12 @@ const SurveyStore = createStore({
     _addQuestions(survey);
 
     _currentID = survey.id;
-    _surveys[_currentID] = survey;
+    _surveys[_currentID] = {
+      id: survey.id,
+      name: survey.name,
+      description: survey.description,
+      count: survey.questions.length
+    }
     _surveyLength = this.getCurrentSurveyLength();
     _currentQuestionsAnswered = QuestionStore.getCurrentAnswered();
   },
@@ -33,7 +41,7 @@ const SurveyStore = createStore({
   },
 
   getCurrentSurveyLength() {
-    return _surveys[_currentID].questions.length;
+    return _surveys[_currentID].count;
   },  
 
   getCurrentID() {

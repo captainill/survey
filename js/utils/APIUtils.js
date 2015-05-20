@@ -21,3 +21,7 @@ export function fetchSurvey(id) {
     }, 1000);
   })
 }
+
+export function postAnswer(payload){
+   localStorage.setItem(payload.question, JSON.stringify(payload))
+}

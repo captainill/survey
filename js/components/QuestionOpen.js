@@ -5,24 +5,28 @@ export default class QuestionOpen {
 
 	static propTypes = {
   	question: PropTypes.object
-  } 
-
-  componentWillMount() {
   }
 
   render() {
+    const answer = this.props.question.answer || null;
+
     return (
       <div className="question">
         <p>{this.props.question.body}</p>
         <div className="choices c-open">
-          <textarea onKeyDown={this.onKeyDownHandler.bind(this)} ref="textArea" name="open" placeholder="Enter your response" />
+          <textarea onKeyUp={this.onKeyDownHandler.bind(this)} ref="textArea" name="open" placeholder="Enter your response" defaultValue={answer}/>
         </div>
       </div>
     );
   }
 
   onKeyDownHandler(){
-    console.log(this.refs.textArea.getDOMNode().value)
+    var text = this.refs.textArea.getDOMNode().value;
+
+    SurveyActionCreators.saveAnswer({
+      question: this.props.question.id,
+      answer: text
+    })
   }
 
 }

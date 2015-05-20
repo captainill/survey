@@ -15,3 +15,14 @@ export function requestSurvey(id) {
     failure: AppConstants.REQUEST_SURVEY_ERROR
   }, { id });
 }
+
+export function saveAnswer(payload){
+	AppDispatcher.dispatch({
+      type: AppConstants.SAVE_ANSWER,
+      question: payload.question,
+      answer: payload.answer
+    });
+
+	//save to localstorage
+	SurveyAPI.saveAnswer(payload)
+}

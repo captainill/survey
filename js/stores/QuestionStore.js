@@ -40,7 +40,12 @@ const QuestionStore = createStore({
       }      
     }
     return surveyQuestions;
-  },  
+  },
+
+  saveQuestionAnswer(payload){
+    let question = _questions[payload.question];
+    question.answer = payload.answer;
+  },
 
   contains(id) {
     return isInBag(_questions, id);
@@ -51,8 +56,9 @@ QuestionStore.dispatchToken = AppDispatcher.register(action => {
 
   switch(action.type) {
 
-    case AppConstants.ANSWER_QUESTION:
-      QuestionStore.emitChange();
+    case AppConstants.SAVE_ANSWER:
+      QuestionStore.saveQuestionAnswer(action.response);
+      //QuestionStore.emitChange();
     break;    
 
     default:
