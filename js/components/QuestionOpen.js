@@ -4,7 +4,7 @@ import * as SurveyActionCreators from'../actions/SurveyActionCreators';
 export default class QuestionOpen {
 
 	static propTypes = {
-  	quesion: PropTypes.object
+  	question: PropTypes.object
   } 
 
   componentWillMount() {
@@ -15,10 +15,14 @@ export default class QuestionOpen {
       <div className="question">
         <p>{this.props.question.body}</p>
         <div className="choices c-open">
-          <textarea name="open" placeholder="Enter your response" />
+          <textarea onKeyDown={this.onKeyDownHandler.bind(this)} ref="textArea" name="open" placeholder="Enter your response" />
         </div>
       </div>
     );
+  }
+
+  onKeyDownHandler(){
+    console.log(this.refs.textArea.getDOMNode().value)
   }
 
 }

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import * as SurveyActionCreators from'../actions/SurveyActionCreators';
 import QuestionStore from'../stores/QuestionStore';
 import { createRangeDataList } from'../utils/FormUtils';
 
@@ -7,20 +6,19 @@ import { createRangeDataList } from'../utils/FormUtils';
 export default class QuestionRange {
 
 	static propTypes = {
-  	quesion: PropTypes.object
+  	question: PropTypes.object
   }
 
   componentDidMount() {
-    let rangeInput = React.findDOMNode(this.refs.rangeInput);
-    console.log(rangeInput)
+    const rangeInput = React.findDOMNode(this.refs.rangeInput);
     createRangeDataList(rangeInput);
   }
 
   renderRange(range) {
     const _this = this;
     const questionID = this.props.question.id;
-    const choices = this.props.question.choices.map(function(choice){
-      return <span key={ choice.id }>{ choice.text }</span>;
+    const choices = this.props.question.choices.map(function(choice, i){
+      return <span onClick={ _this.onRangeLabelClick.bind(_this) } key={ choice.id }>{ choice.text }</span>;
     })    
 
     return (
@@ -35,7 +33,7 @@ export default class QuestionRange {
             ref="rangeInput"
             id={"range-"+questionID}
             className="range-input"
-            onChange={_this.onRangeChange}
+            onChange={_this.onRangeChange.bind(_this)}
             min="1"
             max={choices.length}
             step="1"
@@ -47,7 +45,6 @@ export default class QuestionRange {
   }
 
   render() {
-
     const range = this.renderRange();
 
     return (
@@ -58,9 +55,12 @@ export default class QuestionRange {
     );
   }
 
-  onRangeChange(one, two){
-    console.log('range onChange');
-    console.log(one, two)
+  onRangeChange(){
+    console.log(this.refs.rangeInput.getDOMNode().value);
+  }
+
+  onRangeLabelClick(){
+    this.onRangeChange();
   }
 
 }

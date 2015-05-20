@@ -4,20 +4,18 @@ import * as SurveyActionCreators from'../actions/SurveyActionCreators';
 export default class QuestionBinary {
 
 	static propTypes = {
-  	quesion: PropTypes.object
+  	question: PropTypes.object
   }  
 
-  componentWillMount() {
-  }
-
   render() {
+    const _this = this;
     const questionID = this.props.question.id;
     const choices = this.props.question.choices.map(function(choice){
       return (
-            <div key={ choice.id } >
-              <input type="radio" name={ questionID } id={ choice.id } value={ choice.text } />
-              <label htmlFor={ choice.id }>{ choice.text } </label>
-            </div>
+        <div key={ choice.id } >
+          <input onChange={_this.onChangeHandler.bind(_this, choice.id)} type="radio" name={ questionID } id={ choice.id } value={ choice.text } />
+          <label htmlFor={ choice.id }>{ choice.text } </label>
+        </div>
         )
     })
 
@@ -31,6 +29,10 @@ export default class QuestionBinary {
         </div>
       </div>
     );
+  }
+
+  onChangeHandler(id){
+    console.log(id)
   }
 
 }
