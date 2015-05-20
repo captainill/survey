@@ -1,6 +1,3 @@
-// This file bootstraps the entire application.
-require('babel-core/polyfill');
-
 import '../scss/main.scss';
 
 import React from 'react';

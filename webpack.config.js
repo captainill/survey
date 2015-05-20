@@ -20,12 +20,14 @@ module.exports = {
     new WebackGrowlErrorPlugin(),
     new webpack.NoErrorsPlugin()
   ],
-
+  resolve: {
+    extensions: [ '', '.js' ]
+  },
   module: {
     loaders: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /(node_modules)/,
+        test: /\.jsx?$/,
+        include: path.join(__dirname, 'js'),
         loader: 'babel'
       },
       { 
